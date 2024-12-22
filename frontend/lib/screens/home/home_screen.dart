@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:app_01/widgets/bottom_navigation.dart';
 import 'package:app_01/widgets/top_navigation_bar.dart';
+import 'package:app_01/screens/home/video_screen.dart';
+import 'package:app_01/screens/home/profile_screen.dart';
+import 'package:app_01/screens/home/careers_screen.dart';
+import 'package:app_01/screens/home/chat_screen.dart'; // Import ChatScreen
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -16,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
     VideoScreen(),
     ProfileScreen(),
     CareersScreen(),
-    ChatScreen(),
+    ChatScreen(), // Use ChatScreen from chat_screen.dart
   ];
 
   @override
@@ -40,85 +44,11 @@ class HomeContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            "Welcome to Home",
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: Color(0xFF6A11CB),
-            ),
-          ),
-          SizedBox(height: 20),
-          Text(
-            "Explore and discover amazing features",
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.grey,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class VideoScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
       child: Text(
-        "Video Screen",
+        "Home Screen",
         style: TextStyle(
           fontSize: 24,
-          color: Colors.green,
-        ),
-      ),
-    );
-  }
-}
-
-class ProfileScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        "Profile Screen",
-        style: TextStyle(
-          fontSize: 24,
-          color: Colors.purple,
-        ),
-      ),
-    );
-  }
-}
-
-class CareersScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        "Careers Screen",
-        style: TextStyle(
-          fontSize: 24,
-          color: Colors.orange,
-        ),
-      ),
-    );
-  }
-}
-
-class ChatScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        "Chat Screen",
-        style: TextStyle(
-          fontSize: 24,
-          color: Colors.red,
+          color: Colors.blue,
         ),
       ),
     );
