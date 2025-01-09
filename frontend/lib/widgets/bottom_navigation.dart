@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class BottomNavigation extends StatefulWidget {
   final Function(int) onItemSelected;
 
-  const BottomNavigation({Key? key, required this.onItemSelected}) : super(key: key);
+  const BottomNavigation({Key? key, required this.onItemSelected, required int currentIndex}) : super(key: key);
 
   @override
   _BottomNavigationState createState() => _BottomNavigationState();

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import './forget_password_screen.dart';
 
-class LoginScreen extends StatelessWidget {
+class ForgotPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +24,7 @@ class LoginScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Text(
-                    'Welcome Back',
+                    'Reset Password',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 32,
@@ -35,45 +34,43 @@ class LoginScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 16),
                   Text(
-                    'Sign in to continue',
+                    'Enter your email address to receive a\npassword reset link',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 16,
                       color: Colors.white70,
                     ),
                   ),
                   SizedBox(height: 40),
-                  _buildTextField(
-                    hintText: 'Email',
-                    prefixIcon: Icons.email_outlined,
-                  ),
-                  SizedBox(height: 16),
-                  _buildTextField(
-                    hintText: 'Password',
-                    prefixIcon: Icons.lock_outline,
-                    isPassword: true,
-                  ),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ForgotPasswordScreen(),
-                          ),
-                        );
-                      },
-                      child: Text(
-                        'Forgot Password?',
-                        style: TextStyle(color: Colors.white70),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.2),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: TextField(
+                      style: TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                        hintText: 'Email',
+                        hintStyle: TextStyle(color: Colors.white70),
+                        prefixIcon: Icon(Icons.email_outlined, color: Colors.white70),
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 16,
+                        ),
                       ),
                     ),
                   ),
                   SizedBox(height: 24),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/home');
+                      // Implement password reset logic here
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text('Password reset link sent to your email'),
+                          backgroundColor: Colors.green,
+                        ),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
@@ -84,7 +81,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
                     child: Text(
-                      'Login',
+                      'Send Reset Link',
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -96,15 +93,13 @@ class LoginScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Don\'t have an account? ',
+                        'Remember your password? ',
                         style: TextStyle(color: Colors.white70),
                       ),
                       GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, '/register');
-                        },
+                        onTap: () => Navigator.pop(context),
                         child: Text(
-                          'Register',
+                          'Login',
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -116,33 +111,6 @@ class LoginScreen extends StatelessWidget {
                 ],
               ),
             ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildTextField({
-    required String hintText,
-    required IconData prefixIcon,
-    bool isPassword = false,
-  }) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.2),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: TextField(
-        obscureText: isPassword,
-        style: TextStyle(color: Colors.white),
-        decoration: InputDecoration(
-          hintText: hintText,
-          hintStyle: TextStyle(color: Colors.white70),
-          prefixIcon: Icon(prefixIcon, color: Colors.white70),
-          border: InputBorder.none,
-          contentPadding: EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 16,
           ),
         ),
       ),
