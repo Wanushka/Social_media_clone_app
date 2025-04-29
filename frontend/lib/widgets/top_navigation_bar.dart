@@ -5,7 +5,7 @@ class TopNavigationBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false, // Add this line
-      title: Text("Facebook"),
+      title: Text("SocialMedi"),
       actions: [IconButton(icon: Icon(Icons.settings), onPressed: () => Navigator.pushNamed(context, '/settings'))],
     );
   }

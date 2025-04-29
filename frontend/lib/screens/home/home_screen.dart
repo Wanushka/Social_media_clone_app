@@ -1,7 +1,7 @@
 import 'package:app_01/models/post.dart';
-import 'package:app_01/screens/home/careers_screen.dart';
-import 'package:app_01/screens/home/chat_screen.dart';
-import 'package:app_01/screens/home/profile_screen.dart';
+import 'package:app_01/screens/careers/careers_screen.dart';
+import 'package:app_01/screens/chat/chat_screen.dart';
+import 'package:app_01/screens/profile/profile_screen.dart';
 import 'package:app_01/screens/home/video_screen.dart';
 import 'package:app_01/widgets/bottom_navigation.dart';
 import 'package:app_01/widgets/top_navigation_bar.dart';
@@ -69,9 +69,9 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           HomeContent(posts: posts),
           VideoScreen(),
-          ProfileScreen(),
           CareersScreen(),
           ChatScreen(),
+          ProfileScreen(),
         ],
       ),
       bottomNavigationBar: BottomNavigation(
