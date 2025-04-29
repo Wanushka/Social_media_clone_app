@@ -11,9 +11,9 @@ import 'screens/auth/register_screen.dart';
 // Home Screens
 import 'screens/home/home_screen.dart' as home;
 import 'screens/home/video_screen.dart' as video;
-import 'screens/home/profile_screen.dart' as profile;
-import 'screens/home/careers_screen.dart';
-import 'screens/home/chat_screen.dart';
+import 'screens/profile/profile_screen.dart' as profile;
+import 'screens/careers/careers_screen.dart';
+import 'screens/chat/chat_screen.dart';
 import 'screens/settings_screen.dart';
 
 // Providers

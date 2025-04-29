@@ -2,15 +2,30 @@ import 'package:flutter/material.dart';
 
 class BottomNavigation extends StatefulWidget {
   final Function(int) onItemSelected;
+  final int currentIndex;
 
-  const BottomNavigation({Key? key, required this.onItemSelected, required int currentIndex}) : super(key: key);
+  const BottomNavigation({Key? key, required this.onItemSelected, required this.currentIndex}) : super(key: key);
 
   @override
   _BottomNavigationState createState() => _BottomNavigationState();
 }
 
 class _BottomNavigationState extends State<BottomNavigation> {
-  int _selectedIndex = 0;
+  late int _selectedIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedIndex = widget.currentIndex;
+  }
+
+  @override
+  void didUpdateWidget(BottomNavigation oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.currentIndex != widget.currentIndex) {
+      _selectedIndex = widget.currentIndex;
+    }
+  }
 
   // Define gradient colors for each nav item
   final List<List<Color>> _itemGradients = [
@@ -47,9 +62,9 @@ class _BottomNavigationState extends State<BottomNavigation> {
         children: [
           _buildNavItem(Icons.home_rounded, 0),
           _buildNavItem(Icons.video_library_rounded, 1),
-          _buildNavItem(Icons.person_rounded, 2),
-          _buildNavItem(Icons.work_rounded, 3),
-          _buildNavItem(Icons.chat_rounded, 4),
+          _buildNavItem(Icons.work_rounded, 2),
+          _buildNavItem(Icons.chat_rounded, 3),
+          _buildNavItem(Icons.person_rounded, 4),
         ],
       ),
     );
